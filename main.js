@@ -2,6 +2,8 @@ const grid = document.querySelector('.grid')
 const blockWidth = 100
 const blockHeight = 20
 
+const start = [240, 10]
+
 // Create Block 
 
 class Block {
@@ -46,3 +48,11 @@ const addBlocks = () => {
 }
 
 addBlocks()
+
+
+// Add User
+
+
+const user = document.createElement('div')
+user.classList.add('user')
+grid.appendChild(user)
