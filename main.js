@@ -19,16 +19,14 @@ const blocksArray = [
   new Block(10, 270)
 ]
 
-console.log
-
 // Draw all of the blocks
 const addBlocks = () => {
 
   for (let i = 0; i < blocksArray.length; i++) {
     const block = document.createElement('div')
     block.classList.add('block')
-    block.style.left = blocksArray[i].bottomLeft[0]
-    grid.style.bottom = blocksArray[i].bottomLeft[1]
+    block.style.left = blocksArray[i].bottomLeft[0] + "px"
+    block.style.bottom = blocksArray[i].bottomLeft[1] + "px"
     grid.appendChild(block)
   }
 }
