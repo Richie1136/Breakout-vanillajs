@@ -16,7 +16,21 @@ class Block {
 // All of the blocks
 
 const blocksArray = [
-  new Block(10, 270)
+  new Block(10, 270),
+  new Block(120, 270),
+  new Block(230, 270),
+  new Block(340, 270),
+  new Block(450, 270),
+  new Block(10, 230),
+  new Block(120, 230),
+  new Block(230, 230),
+  new Block(340, 230),
+  new Block(450, 230),
+  new Block(10, 190),
+  new Block(120, 190),
+  new Block(230, 190),
+  new Block(340, 190),
+  new Block(450, 190),
 ]
 
 // Draw all of the blocks
