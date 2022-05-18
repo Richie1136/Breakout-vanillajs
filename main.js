@@ -96,7 +96,3 @@ ball.classList.add('ball')
 ball.style.left = ballPosition[0] + "px"
 ball.style.bottom = ballPosition[1] + "px"
 grid.appendChild(ball)
-
-const addBall = () => {
-
-}
