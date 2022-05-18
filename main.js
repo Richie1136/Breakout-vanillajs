@@ -56,4 +56,26 @@ addBlocks()
 
 const user = document.createElement('div')
 user.classList.add('user')
+user.style.left = currentPosition[0] + "px"
+user.style.bottom = currentPosition[1] + "px"
 grid.appendChild(user)
+
+
+// Move User
+
+
+const moveUser = (event) => {
+  switch (event.key) {
+    case 'ArrowLeft':
+      currentPosition[0] -= 10
+      user.style.left = currentPosition[0] + "px"
+      user.style.bottom = currentPosition[1] + "px"
+      console.log("Moved")
+      break;
+    case 'ArrowRight':
+      currentPosition[0] += 10
+      user.style.left = currentPosition[0] + "px"
+  }
+}
+
+document.addEventListener('keydown', moveUser)
