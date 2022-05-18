@@ -3,6 +3,7 @@ const blockWidth = 100
 const blockHeight = 20
 
 const start = [240, 10]
+let currentPosition = start
 
 // Create Block 
 

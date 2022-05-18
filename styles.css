@@ -18,3 +18,10 @@
   height: 20px;
   background-color: rebeccapurple;
 }
+
+body {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
