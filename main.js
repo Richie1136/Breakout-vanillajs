@@ -1,6 +1,7 @@
 const grid = document.querySelector('.grid')
 const blockWidth = 100
 const blockHeight = 20
+const boardWith = 560
 
 const start = [240, 10]
 let currentPosition = start
@@ -67,14 +68,19 @@ grid.appendChild(user)
 const moveUser = (event) => {
   switch (event.key) {
     case 'ArrowLeft':
-      currentPosition[0] -= 10
-      user.style.left = currentPosition[0] + "px"
-      user.style.bottom = currentPosition[1] + "px"
-      console.log("Moved")
+      if (currentPosition[0] > 0) {
+        currentPosition[0] -= 10
+        user.style.left = currentPosition[0] + "px"
+        user.style.bottom = currentPosition[1] + "px"
+        console.log("Moved")
+      }
       break;
     case 'ArrowRight':
-      currentPosition[0] += 10
-      user.style.left = currentPosition[0] + "px"
+      if (currentPosition[0] < boardWith - blockWidth) {
+        currentPosition[0] += 10
+        user.style.left = currentPosition[0] + "px"
+        user.style.bottom = currentPosition[1] + "px"
+      }
   }
 }
 
