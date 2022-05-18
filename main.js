@@ -85,3 +85,16 @@ const moveUser = (event) => {
 }
 
 document.addEventListener('keydown', moveUser)
+
+
+
+// Add Ball
+
+const ball = document.createElement('div')
+ball.classList.add('ball')
+
+grid.appendChild(ball)
+
+const addBall = () => {
+
+}
