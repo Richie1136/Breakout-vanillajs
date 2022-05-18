@@ -96,3 +96,16 @@ ball.classList.add('ball')
 ball.style.left = ballPosition[0] + "px"
 ball.style.bottom = ballPosition[1] + "px"
 grid.appendChild(ball)
+
+// Move the ball 
+
+const moveBall = () => {
+  ballPosition[0] += 2
+  ballPosition[1] += 2
+  ball.style.left = ballPosition[0] + "px"
+  ball.style.bottom = ballPosition[1] + "px"
+}
+
+setInterval(() => {
+  moveBall()
+}, 30);
