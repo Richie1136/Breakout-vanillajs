@@ -7,7 +7,8 @@ const ballDiameter = 20
 let xDirection = -2
 let yDirection = 2
 let timer;
-
+let scoreDisplay = document.querySelector('.score')
+let score = 0
 const start = [240, 10]
 let currentPosition = start
 const ballStart = [285, 130]
@@ -152,6 +153,9 @@ const checkforCollisions = () => {
       console.log(allBlocks)
       allBlocks[i].classList.remove('block')
       blocksArray.splice(i, 1)
+      changeDirection()
+      score++
+      scoreDisplay.innerHTML = `Score ${score}`
     }
   }
 
