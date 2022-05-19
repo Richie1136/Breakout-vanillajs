@@ -1,7 +1,7 @@
 const grid = document.querySelector('.grid')
 const blockWidth = 100
 const blockHeight = 20
-const boardWith = 560
+const boardWidth = 560
 const boardHeight = 300
 const ballDiameter = 20
 let xDirection = -2
@@ -82,7 +82,7 @@ const moveUser = (event) => {
       }
       break;
     case 'ArrowRight':
-      if (currentPosition[0] < boardWith - blockWidth) {
+      if (currentPosition[0] < boardWidth - blockWidth) {
         currentPosition[0] += 10
         user.style.left = currentPosition[0] + "px"
         user.style.bottom = currentPosition[1] + "px"
@@ -157,7 +157,7 @@ const checkforCollisions = () => {
 
   // check for wall collisions
 
-  if (ballPosition[0] >= (boardWith - ballDiameter) ||
+  if (ballPosition[0] >= (boardWidth - ballDiameter) ||
     ballPosition[1] >= (boardHeight - ballDiameter) || ballPosition[0] <= 0) {
     changeDirection()
   }
