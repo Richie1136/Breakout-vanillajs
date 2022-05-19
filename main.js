@@ -2,9 +2,11 @@ const grid = document.querySelector('.grid')
 const blockWidth = 100
 const blockHeight = 20
 const boardWith = 560
+const boardHeight = 300
 const ballDiameter = 20
 let xDirection = 2
 let yDirection = 2
+let timer;
 
 const start = [240, 10]
 let currentPosition = start
@@ -110,7 +112,7 @@ const moveBall = () => {
   checkforCollisions()
 }
 
-setInterval(() => {
+timer = setInterval(() => {
   moveBall()
 }, 30);
 
@@ -120,6 +122,18 @@ const changeDirection = () => {
     yDirection = -2
     return
   }
+  if (xDirection === 2 && yDirection === -2) {
+    xDirection = -2
+    return
+  }
+  if (xDirection === -2 && yDirection === -2) {
+    yDirection = 2
+    return
+  }
+  if (xDirection === -2 && yDirection === 2) {
+    xDirection = 2
+    return
+  }
 }
 
 // check for collisions
@@ -127,7 +141,14 @@ const changeDirection = () => {
 const checkforCollisions = () => {
   // check for wall collisions
 
-  if (ballPosition[0] >= (boardWith - ballDiameter)) {
+  if (ballPosition[0] >= (boardWith - ballDiameter) ||
+    ballPosition[1] >= (boardHeight - ballDiameter)) || ballPosition[0] <= 0) {
     changeDirection()
   }
+  // check for gameover
+
+  if (ballPosition[1] <= 0) {
+    clearInterval(timer)
+  }
+
 }
