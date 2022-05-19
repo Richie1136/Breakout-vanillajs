@@ -4,7 +4,7 @@ const blockHeight = 20
 const boardWith = 560
 const boardHeight = 300
 const ballDiameter = 20
-let xDirection = 2
+let xDirection = -2
 let yDirection = 2
 let timer;
 
@@ -139,16 +139,34 @@ const changeDirection = () => {
 // check for collisions
 
 const checkforCollisions = () => {
+
+  //   // check for block collisions
+
+  for (let i = 0; i < blocksArray.length; i++) {
+    if
+      (
+      (ballPosition[0] > blocksArray[i].bottomLeft[0] && ballPosition[0] < blocksArray[i].bottomRight[0]) &&
+      ((ballPosition[1] + ballDiameter) > blocksArray[i].bottomLeft[1] && ballPosition[1] < blocksArray[i].topLeft[1])
+    ) {
+      const allBlocks = Array.from(document.querySelectorAll('.block'))
+      console.log(allBlocks)
+      allBlocks[i].classList.remove('block')
+      blocksArray.splice(i, 1)
+    }
+  }
+
   // check for wall collisions
 
   if (ballPosition[0] >= (boardWith - ballDiameter) ||
-    ballPosition[1] >= (boardHeight - ballDiameter)) || ballPosition[0] <= 0) {
+    ballPosition[1] >= (boardHeight - ballDiameter) || ballPosition[0] <= 0) {
     changeDirection()
   }
   // check for gameover
 
   if (ballPosition[1] <= 0) {
+    console.log("Game Over")
     clearInterval(timer)
+    document.removeEventListener('keydown', moveUser)
   }
 
 }
