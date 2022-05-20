@@ -13,6 +13,7 @@ const start = [240, 10]
 let currentPosition = start
 const ballStart = [285, 130]
 let ballPosition = ballStart
+let endGame;
 // Create Block 
 
 class Block {
@@ -165,6 +166,13 @@ const checkforCollisions = () => {
     ballPosition[1] >= (boardHeight - ballDiameter) || ballPosition[0] <= 0) {
     changeDirection()
   }
+
+  // check for user collisions
+
+  if (ballPosition[0] > currentPosition[0] && ballPosition[0] < currentPosition[0] + blockWidth && ballPosition[1] > currentPosition[1] && ballPosition[1] < currentPosition[1] + blockHeight) {
+    changeDirection()
+  }
+
   // check for gameover
 
   if (ballPosition[1] <= 0) {
@@ -172,5 +180,3 @@ const checkforCollisions = () => {
     clearInterval(timer)
     document.removeEventListener('keydown', moveUser)
   }
-
-}
