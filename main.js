@@ -157,6 +157,15 @@ const checkforCollisions = () => {
       changeDirection()
       score++
       scoreDisplay.innerHTML = `Score ${score}`
+
+      // check for win
+
+      if (blocksArray.length === 0) {
+        scoreDisplay.innerHTML = "You win"
+        clearInterval(timer)
+        document.removeEventListener('keydown', moveUser)
+      }
+
     }
   }
 
@@ -180,3 +189,4 @@ const checkforCollisions = () => {
     clearInterval(timer)
     document.removeEventListener('keydown', moveUser)
   }
+}
